@@ -317,11 +317,11 @@ compound_page_dtor * const compound_page_dtors[] = {
 /*
  * Try to keep at least this much lowmem free.  Do not allow normal
  * allocations below this point, only high priority ones. Automatically
- * tuned according to the amount of memory in the system.
+ * tuned according to the amount of memory in the system.P
  */
 int min_free_kbytes = 1024;
 int user_min_free_kbytes = -1;
-int watermark_scale_factor = 30;
+int watermark_scale_factor = 35;
 
 /*
  * Extra memory for the system to try freeing. Used to temporarily
