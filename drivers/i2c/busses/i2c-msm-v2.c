@@ -2053,6 +2053,9 @@ i2c_msm_qup_choose_mode(struct i2c_msm_ctrl *ctrl)
 
 	if (ctrl->rsrcs.disable_dma || (rx_cnt_sum < 96 && tx_cnt_sum < 96))
 		return I2C_MSM_XFER_MODE_BLOCK;
+		
+	if (rx_cnt_sum < 64 && tx_cnt_sum < 64)
+        return I2C_MSM_XFER_MODE_BLOCK;
 
 	return I2C_MSM_XFER_MODE_BLOCK;
 }
