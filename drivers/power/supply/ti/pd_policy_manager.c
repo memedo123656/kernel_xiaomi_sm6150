@@ -931,11 +931,10 @@ static int usbpd_pm_fc2_charge_algo(struct usbpd_pm *pdpm)
 		pr_info("cp.charge_enabled:%d, cp_sec.charge_enabled:%d\n",
 				pdpm->cp.charge_enabled, pdpm->cp_sec.charge_enabled);
 		return PM_ALGO_RET_CHG_DISABLED;
-	} else if (pdpm->sw.slowly_charging) {
+/*	} else if (pdpm->sw.slowly_charging) {
 		pr_err("slowly charging enabled[%d]\n", pdpm->sw.slowly_charging);
 		return PM_ALGO_RET_SLOWLY_CHARGING;
-	}
-
+*/	}
 	if (pdpm->cp.vbat_volt > pm_config.bat_volt_lp_lmt
 			&& is_cool_charge(pdpm)) {
 		if (cool_overcharge_timer++ > TAPER_TIMEOUT) {
