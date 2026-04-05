@@ -471,7 +471,7 @@ static void write_src(void)
 	for (i = 0; i < table_cnt; i++) {
 		if ((i & 0xFF) == 0)
 			markers[i >> 8] = off;
-		table[i].seq = i;
+		table[i]->seq = i;
 
 		printf("\t.byte 0x%02x", table[i].len);
 		for (k = 0; k < table[i].len; k++)
@@ -492,7 +492,7 @@ static void write_src(void)
 	sort_symbols_by_name();
 	output_label("kallsyms_seqs_of_names");
 	for (i = 0; i < table_cnt; i++)
-		printf("\t.long\t%u\n", table[i].seq);
+		printf("\t.long\t%u\n", table[i]->seq);
 	printf("\n");
 
 	output_label("kallsyms_token_table");
